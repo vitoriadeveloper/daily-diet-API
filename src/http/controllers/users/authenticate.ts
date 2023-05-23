@@ -20,8 +20,24 @@ export async function authenticate(req: FastifyRequest, res: FastifyReply) {
                 sub: user.id,
             },
         });
+        const refreshToken = await res.jwtSign({
+            sign: {
+                sub: user.id,
+                expiresIn: "7 days",
+            },
+        });
 
-        return token;
+        return res
+            .setCookie("refreshToken", refreshToken, {
+                path: "/",
+                secure: true,
+                sameSite: true,
+                httpOnly: true,
+            })
+            .status(200)
+            .send({
+                token,
+            });
     } catch (error) {
         if (error instanceof InvalidCredentialsError) {
             return res.status(400).send({ message: error.message });

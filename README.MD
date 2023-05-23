@@ -5,7 +5,7 @@
  - [x] It should be able to create a user
   
  - [x] It should be able to identify a user
- - [ ] It should be able to register a meal
+ - [x] It should be able to register a meal
  - [ ] It should be able to update a meal
  - [ ] It should be able to delete a meal
  - [ ] It should be able to list all a users meals 
@@ -19,6 +19,7 @@
 
 
 next steps
+- Validar criação de refeição e fazer manipulação de data
 - criar testes unitarios para refeições
 - elaborar factories e controllers de refeiçoes
 - criar testes de metricas de um usuario
