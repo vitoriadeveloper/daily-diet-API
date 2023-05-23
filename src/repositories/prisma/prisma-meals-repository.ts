@@ -41,4 +41,26 @@ export class PrismaMealsRepository implements MealsRepository {
         });
         return count;
     }
+
+    async update(id: string, data: Prisma.DietUncheckedUpdateInput) {
+        const meal = await prisma.diet.update({
+            where: { id },
+            data: {
+                name: data.name,
+                description: data.description,
+                isDiet: data.isDiet,
+                date: data.date,
+            },
+        });
+
+        return meal;
+    }
+
+    async delete(id: string) {
+        await prisma.diet.delete({
+            where: { id },
+        });
+
+        return true;
+    }
 }

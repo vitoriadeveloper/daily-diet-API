@@ -38,4 +38,37 @@ export class InMemoryMealsRepository implements MealsRepository {
     async countByUserId(userId: string) {
         return this.items.filter((item) => item.userId === userId).length;
     }
+
+    async update(
+        id: string,
+        data: Prisma.DietUpdateInput,
+    ): Promise<Diet | null> {
+        const index = this.items.findIndex((item) => item.id === id);
+
+        if (index === -1) {
+            return null; // Retorna null se a refeição não for encontrada
+        }
+
+        const existingMeal = this.items[index];
+        const updatedMeal = {
+            ...existingMeal,
+            ...data,
+        } as Diet;
+
+        this.items[index] = updatedMeal;
+
+        return updatedMeal;
+    }
+
+    async delete(id: string): Promise<boolean> {
+        const index = this.items.findIndex((item) => item.id === id);
+
+        if (index === -1) {
+            return false; // user not found
+        }
+
+        this.items.splice(index, 1);
+
+        return true;
+    }
 }

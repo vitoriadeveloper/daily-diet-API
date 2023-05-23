@@ -5,4 +5,9 @@ export interface MealsRepository {
     findById(id: string): Promise<Diet | null>;
     searchMany(query: string, page: number): Promise<Diet[]>;
     countByUserId(userId: string): Promise<number>;
+    update(
+        id: string,
+        data: Prisma.DietUncheckedUpdateInput,
+    ): Promise<Diet | null>;
+    delete(id: string): Promise<boolean>;
 }
