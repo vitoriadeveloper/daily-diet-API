@@ -1,6 +1,7 @@
 import { Diet, Prisma } from "@prisma/client";
 
 export interface MealsRepository {
+    getAll(): Promise<Diet[]>;
     create(data: Prisma.DietUncheckedCreateInput): Promise<Diet>;
     findById(id: string): Promise<Diet | null>;
     searchMany(query: string, page: number): Promise<Diet[]>;
@@ -10,5 +11,5 @@ export interface MealsRepository {
         id: string,
         data: Prisma.DietUncheckedUpdateInput,
     ): Promise<Diet | null>;
-    delete(id: string): Promise<boolean>;
+    delete(dietId: string): Promise<boolean>;
 }

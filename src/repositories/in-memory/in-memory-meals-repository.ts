@@ -77,4 +77,8 @@ export class InMemoryMealsRepository implements MealsRepository {
 
         return meal;
     }
+
+    async getAll() {
+        return this.items;
+    }
 }

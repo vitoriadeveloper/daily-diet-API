@@ -72,4 +72,9 @@ export class PrismaMealsRepository implements MealsRepository {
         });
         return diets;
     }
+
+    async getAll() {
+        const diet = await prisma.diet.findMany();
+        return diet;
+    }
 }
