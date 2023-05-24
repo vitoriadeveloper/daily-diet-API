@@ -77,4 +77,21 @@ export class PrismaMealsRepository implements MealsRepository {
         const diet = await prisma.diet.findMany();
         return diet;
     }
+
+    async metricsWithinDietByUserId(userId: string) {
+        const diet = await prisma.diet.findMany({
+            where: { userId },
+        });
+
+        return { diet };
+    }
+
+    async offDietMetrics(userId: string): Promise<number> {
+        const count = await prisma.diet.count({
+            where: {
+                userId,
+            },
+        });
+        return count;
+    }
 }
