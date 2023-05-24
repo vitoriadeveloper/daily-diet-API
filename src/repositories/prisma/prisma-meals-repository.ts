@@ -63,4 +63,13 @@ export class PrismaMealsRepository implements MealsRepository {
 
         return true;
     }
+
+    async findOnlyMeal(dietId: string) {
+        const diets = await prisma.diet.findMany({
+            where: {
+                id: dietId,
+            },
+        });
+        return diets;
+    }
 }

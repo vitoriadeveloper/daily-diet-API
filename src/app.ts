@@ -17,5 +17,13 @@ app.register(fastifyJwt, {
     },
 });
 app.register(fastifyCookie);
+// app.addHook("preHandler", async (request, reply) => {
+//     try {
+//         await request.jwtVerify();
+//     } catch (err) {
+//         reply.status(401).send({ message: "Unauthorized" });
+//     }
+// });
+
 app.register(dietDailyRoutes);
 app.register(usersRoutes);

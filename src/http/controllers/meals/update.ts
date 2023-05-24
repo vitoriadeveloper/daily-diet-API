@@ -10,16 +10,16 @@ export async function updateMeal(req: FastifyRequest, res: FastifyReply) {
         date: z.string().refine((value) => !isNaN(Date.parse(value))),
     });
     const paramsSchema = z.object({
-        dietId: z.string(),
+        id: z.string(),
     });
 
-    const { dietId } = paramsSchema.parse(req.params);
+    const { id } = paramsSchema.parse(req.params);
     const { name, description, isDiet } = updateBodySchema.parse(req.body);
     const updateMealUseCase = makeUpdateMealUseCase();
     await updateMealUseCase.execute({
         name,
         description,
         isDiet,
-        dietId,
+        dietId: id,
     });
 }

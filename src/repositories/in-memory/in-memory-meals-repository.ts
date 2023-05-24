@@ -71,4 +71,10 @@ export class InMemoryMealsRepository implements MealsRepository {
 
         return true;
     }
+
+    async findOnlyMeal(dietId: string) {
+        const meal = this.items.filter((item) => item.id === dietId);
+
+        return meal;
+    }
 }
