@@ -35,6 +35,19 @@ export class InMemoryMealsRepository implements MealsRepository {
             .slice((page - 1) * 10, page * 10);
     }
 
+    async metricsWithinDietByUserId(userId: string) {
+        const diet = this.items.filter(
+            (item) => item.userId === userId && item.isDiet,
+        );
+        return { diet };
+    }
+
+    async offDietMetrics(userId: string) {
+        return this.items.filter(
+            (item) => item.userId === userId && item.isDiet === false,
+        ).length;
+    }
+
     async countByUserId(userId: string) {
         return this.items.filter((item) => item.userId === userId).length;
     }

@@ -7,21 +7,17 @@
  - [x] It should be able to identify a user
  - [x] It should be able to register a meal
  - [x] It should be able to update a meal
- - [ ] It should be able to delete a meal
- - [ ] It should be able to list all a users meals 
+ - [x] It should be able to delete a meal
+ - [x] It should be able to list all a users meals 
  - [x] It should be able to view  a only meal 
-
+ - [x] It should be able to get metrics of the total number of registered meals
+ - [x] It should be able to get metrics of the total amount of meals within the diets
+ - [x] It should be able to get metrics on the total number of off-diet meals.
+ - [ ] It should be able to get a best sequence per day of meals within the diet.
 
 ### Non-Functional Requirements
- - [ ] It should be able to get a metric from a user
+
   
  - [ ] The user only can delete, update and to view his own meal
  - [ ] it should be possible to implement route blocking
 
-
-next steps
-- Validar criação de refeição e fazer manipulação de data
-- criar testes unitarios para refeições
-- elaborar factories e controllers de refeiçoes
-- criar testes de metricas de um usuario
-- elaborar factories e controllers de metricas

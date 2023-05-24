@@ -6,6 +6,8 @@ export interface MealsRepository {
     findById(id: string): Promise<Diet | null>;
     searchMany(query: string, page: number): Promise<Diet[]>;
     findOnlyMeal(dietId: string): Promise<Diet[]>;
+    metricsWithinDietByUserId(userId: string): Promise<{ diet: Diet[] }>;
+    offDietMetrics(userId: string): Promise<number>;
     countByUserId(userId: string): Promise<number>;
     update(
         id: string,
