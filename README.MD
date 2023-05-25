@@ -18,6 +18,6 @@
 ### Non-Functional Requirements
 
   
- - [ ] The user only can delete, update and to view his own meal
- - [ ] it should be possible to implement route blocking
+ - [x] The user only can delete, update and to view his own meal
+ - [x] it should be possible to implement route blocking
 

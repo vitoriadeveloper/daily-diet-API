@@ -12,10 +12,8 @@ export class PrismaMealsRepository implements MealsRepository {
     }
 
     async findById(id: string) {
-        const meal = await prisma.diet.findUnique({
-            where: {
-                id,
-            },
+        const meal = await prisma.diet.findFirstOrThrow({
+            where: { userId: id },
         });
         return meal;
     }

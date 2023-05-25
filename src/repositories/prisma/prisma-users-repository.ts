@@ -4,11 +4,10 @@ import { prisma } from "@/lib/prisma";
 
 export class PrismaUsersRepository implements UsersRepository {
     async findById(id: string) {
-        const user = await prisma.user.findUnique({
-            where: {
-                id,
-            },
+        const user = await prisma.user.findFirstOrThrow({
+            where: { id },
         });
+
         return user;
     }
 
