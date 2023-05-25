@@ -1,5 +1,15 @@
 ## Daily Diet API
 
+#### [PT-BR] API criada a partir de um desafio do curso ignite da Rocketseat para integrar com um frontend em react native que será desenvolvido por mim. Alguns conceitos e ferramentas que utilizei nessa API
+#### [EN] API created from a challenge from Rocketseat's ignite course to integrate with a react native frontend that will be developed by me. Some concepts and tools I used in this API
+* Prisma
+* Fastify
+* TDD
+* Design Patterns 
+* Vitest
+* Typescript
+* JWT
+* zod
 ---
 ### Functional Requirements
  - [x] It should be able to create a user
