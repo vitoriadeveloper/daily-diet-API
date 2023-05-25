@@ -10,13 +10,16 @@ export async function createMeal(req: FastifyRequest, res: FastifyReply) {
         date: z.string().refine((value) => !isNaN(Date.parse(value))),
     });
 
-    const { name, description, isDiet } = postBodySchema.parse(req.body);
+    const { name, description, isDiet, date } = postBodySchema.parse(req.body);
     const createMealUserCase = makeRegisterMealUseCase();
+    const formattedDate = new Date(date).toISOString();
+
     await createMealUserCase.execute({
         name,
         description,
         isDiet,
-        userId: req.user.sub,
+        userId: req.user.sign.sub,
+        date: new Date(formattedDate),
     });
     return res.status(201).send();
 }

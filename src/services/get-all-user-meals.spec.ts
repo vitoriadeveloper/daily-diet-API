@@ -15,6 +15,7 @@ describe("Get all meal of a user use case", () => {
             description: "Uma feijoada pela manhã",
             isDiet: false,
             userId: "user.id",
+            date: new Date(),
         });
         await mealsRepository.create({
             id: "diet-02",
@@ -22,6 +23,7 @@ describe("Get all meal of a user use case", () => {
             description: "Amo arroz",
             isDiet: true,
             userId: "user.id",
+            date: new Date(),
         });
         await mealsRepository.create({
             id: "diet-03",
@@ -29,6 +31,7 @@ describe("Get all meal of a user use case", () => {
             description: "Carne de frango",
             isDiet: false,
             userId: "user.id",
+            date: new Date(),
         });
     });
     it("Should be able to get all user meals", async () => {

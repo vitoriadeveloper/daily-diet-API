@@ -2,7 +2,7 @@ import { Diet, Prisma } from "@prisma/client";
 
 export interface MealsRepository {
     getAll(): Promise<Diet[]>;
-    create(data: Prisma.DietUncheckedCreateInput): Promise<Diet>;
+    create(data: Prisma.DietCreateInput): Promise<Diet>;
     findById(id: string): Promise<Diet | null>;
     searchMany(query: string, page: number): Promise<Diet[]>;
     findOnlyMeal(dietId: string): Promise<Diet[]>;

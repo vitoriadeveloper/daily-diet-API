@@ -3,11 +3,16 @@ import { MealsRepository } from "../meals-repository";
 import { prisma } from "@/lib/prisma";
 
 export class PrismaMealsRepository implements MealsRepository {
-    async create(data: Prisma.DietUncheckedCreateInput) {
-        const meal = prisma.diet.create({
-            data,
+    async create(data: Prisma.DietCreateInput) {
+        const meal = await prisma.diet.create({
+            data: {
+                name: data.name,
+                description: data.description,
+                isDiet: data.isDiet,
+                userId: data.userId,
+                date: data.date,
+            },
         });
-
         return meal;
     }
 
